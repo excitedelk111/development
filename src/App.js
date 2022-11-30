@@ -9,7 +9,7 @@ function App() {
   let response = null;
   new Promise(async (resolve, reject) => {
     try {
-      response = await axios.default.get('http://pro-api.coinmarketcap.com/v1/cryptocurrency/trending/latest', {
+      response = await axios.default.get('https://pro-api.coinmarketcap.com/v1/cryptocurrency/trending/latest', {
         headers: {
           'X-CMC_PRO_API_KEY': 'da483b80-b3b5-4a21-85d4-0fb468931f6d',
         },
