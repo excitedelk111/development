@@ -41,6 +41,10 @@ function App() {
 
   useEffect(() => {
     masterSort();
+  }, [coinsOnScreen]);
+
+  useEffect(() => {
+    masterSort();
     setFilteringComplete(false);
   }, [filteringComplete]);
 
