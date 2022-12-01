@@ -117,24 +117,72 @@ function App() {
     setSortingComplete(true);
   };
 
-  const masterFilter = async () => {
+  const masterFilter = () => {
     var greenFilteredCoins = [];
     var redFilteredCoins = [];
     var portfolioFilteredCoins = [];
+    if (
+      greenFilterRef.current.checked &&
+      redFilterRef.current.checked &&
+      portfolioFilterRef.current.checked
+    ) {
+      portfolioFilteredCoins = coins.filter((coin) => {
+        return coin.name in coinsInPortfolio;
+      });
+      setCoinsOnScreen(portfolioFilteredCoins);
+      setFilteringComplete(true);
+      return;
+    }
+    if (greenFilterRef.current.checked && redFilterRef.current.checked) {
+      setCoinsOnScreen(coins);
+      setFilteringComplete(true);
+      return;
+    }
+    if (greenFilterRef.current.checked && portfolioFilterRef.current.checked) {
+      greenFilteredCoins = coins.filter((coin) => {
+        return String(coin.price_change_24h)[0] !== "-";
+      });
+      portfolioFilteredCoins = greenFilteredCoins.filter((coin) => {
+        return coin.name in coinsInPortfolio;
+      });
+      setCoinsOnScreen(portfolioFilteredCoins);
+      setFilteringComplete(true);
+      return;
+    }
+    if (redFilterRef.current.checked && portfolioFilterRef.current.checked) {
+      redFilteredCoins = coins.filter((coin) => {
+        return String(coin.price_change_24h)[0] === "-";
+      });
+      portfolioFilteredCoins = redFilteredCoins.filter((coin) => {
+        return coin.name in coinsInPortfolio;
+      });
+      setCoinsOnScreen(portfolioFilteredCoins);
+      setFilteringComplete(true);
+      return;
+    }
     if (greenFilterRef.current.checked) {
       greenFilteredCoins = coins.filter((coin) => {
         return String(coin.price_change_24h)[0] !== "-";
       });
+      setCoinsOnScreen(greenFilteredCoins);
+      setFilteringComplete(true);
+      return;
     }
     if (redFilterRef.current.checked) {
       redFilteredCoins = coins.filter((coin) => {
         return String(coin.price_change_24h)[0] === "-";
       });
+      setCoinsOnScreen(redFilteredCoins);
+      setFilteringComplete(true);
+      return;
     }
     if (portfolioFilterRef.current.checked) {
       portfolioFilteredCoins = coins.filter((coin) => {
         return coin.name in coinsInPortfolio;
       });
+      setCoinsOnScreen(portfolioFilteredCoins);
+      setFilteringComplete(true);
+      return;
     }
     if (
       !(
@@ -144,14 +192,9 @@ function App() {
       )
     ) {
       setCoinsOnScreen(coins);
-    } else {
-      setCoinsOnScreen(
-        greenFilteredCoins
-          .concat(redFilteredCoins)
-          .concat(portfolioFilteredCoins)
-      );
+      setFilteringComplete(true);
+      return;
     }
-    setFilteringComplete(true);
   };
 
   const formatter = new Intl.NumberFormat("en-US", {
