@@ -1,24 +1,66 @@
-.App {
-  text-align: center;
+.app {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-size: calc(10px + 2vmin);
+  color: white;
+  color: #61dafb;
+  align-items: center;
 }
 
 .coin-container {
   display: flex;
   flex-direction: column;
   padding: 20px;
+  margin: 20px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.sort-container {
+  font-size: calc(10px + 1vmin);
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  flex-direction: row;
+  justify-content: space-around;
+  border: 2px;
+  border-color: white;
+  border-radius: 15px;
+  border-style: solid;
+  padding: 15px;
+  width: 1000px;
 }
 
-.App-link {
-  color: #61dafb;
+.filter-container {
+  font-size: calc(10px + 1vmin);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  border: 2px;
+  border-color: white;
+  border-radius: 15px;
+  border-style: solid;
+  padding: 15px;
+  width: 1000px;
+}
+
+.portfolio-container {
+  border: 2px;
+  border-color: white;
+  border-radius: 15px;
+  border-style: solid;
+  padding: 15px;
+  width: 1000px;
+}
+
+.portfolio-table {
+  font-size: calc(10px + 1vmin);
+}
+
+.portfolio-header {
+  display: flex;
+  justify-content: space-around;
+}
+
+.portfolio-footer {
+  margin-top: 10px;
+  text-align: right;
 }

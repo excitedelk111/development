@@ -1,0 +1,30 @@
+.coincard-container {
+  border: 2px;
+  border-color: white;
+  border-radius: 15px;
+  border-style: solid;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  width: 600px;
+  margin: auto;
+}
+
+.coincard-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+
+.coincard-information {
+  font-size: calc(10px + 1vmin);
+}
+
+.coincard-pricing-information {
+  font-size: calc(10px + 1vmin);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
