@@ -7,6 +7,7 @@ https://excitedelk111.github.io/development
 ### Goal and Value of the Application
 
 Goal: allow users to look at key market data on the top 100 cryptocurrencies (by market cap).
+
 Value: lets users configure a fictional portfolio of cryptocurrencies to help with diversification strategies.
 
 ### Usability Principles Considered
